@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Home page
+{% endblock title %}
+
+
+{% block content %}
+
+
+<div class="url-field">
+    <p>Paste your link</p>
+
+    <form action="{% url 'download-page' %}" method="POST">
+        {%csrf_token%}
+        <textarea name="YT_link" id="textarea" maxlength="150"></textarea>
+        <button type="submit" class="btn btn-outline-success my_button">Next</button>
+    </form>
+    <div class="result-url">
+    </div>
+
+</div>
+
+
+{% endblock content %}

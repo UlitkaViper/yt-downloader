@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Home page
+{% endblock title %}
+
+
+{% block content %}
+
+
+<div class="url-field">
+    <div class="preview">
+
+        {%csrf_token%}
+        <img src="{{ thumbnail }}" class="thumbtail-img">
+
+
+        <b>{{title}}</b>
+        <br>
+        <a>Duration: {{duration}}</a>
+        <br>
+        <select name="" id="download_select">
+
+            {% for resolution in streams %}
+            <option value="{{resolution.0}}">{{resolution.1}}</option>
+            {% endfor %}
+            <option value="audio">only audio</option>
+            <option value="thumbnail">thumbnail</option>
+        </select>
+
+        <br>
+        <button type="submit" class="btn btn-outline-success my_button Download_button">Download</button>
+        <a href="" hidden="true" class="YT_link">{{video_url}}</a>
+
+    </div>
+
+
+
+
+</div>
+
+
+{% endblock content %}
